@@ -26,7 +26,7 @@ chai.use(chaiImmutable);
 
 function renderComponent(ComponentClass, props= {}, state = {}) {
 	const componentInstance = TestUtils.renderIntoDocument(
-		<Provider store={createStore(reducers, state)}>
+		<Provider store={createStore(() => {}, state)}>
 			<ComponentClass {...props} />
 		</Provider>
 	);
@@ -42,4 +42,3 @@ $.fn.simulate = function (eventName, value) {
 };
 
 export { renderComponent, expect };
-/* eslint-enable */
